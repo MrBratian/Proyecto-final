@@ -2,8 +2,8 @@ import string
 import unicodedata
 from langdetect import detect
 import nltk
-#from nltk.corpus import stopwords
 import stopwordsiso as stopwords
+import re
 
 abecedario = string.ascii_lowercase 
 
@@ -68,14 +68,14 @@ def contar_frecuencia_palabras(contenido):
     for palabra, frecuencia in sorted(frecuencia_palabras.items(), key=lambda x: x[1], reverse=True)[:100]:
         print(f"{palabra}: {frecuencia} veces")
 
-#Funcion que calcula las palabras sin repetir
+#Función que calcula las palabras sin repetir
 def calcular_numero_distinto_palabras(contenido):
   str_contenido = ' '.join(contenido)
   palabras = str_contenido.split()
   numero_distinto_palabras = len(set(palabras))
   return numero_distinto_palabras
 
-#Funcion que detecta el idioma del texto
+#Función que detecta el idioma del texto
 def identificar_idioma(contenido):
   str_contenido = ' '.join(contenido)
   idioma = detect(str_contenido)
@@ -93,8 +93,8 @@ def identificar_idioma(contenido):
   else:
     return 'Unknown'
 
-#Funcion que cuenta las palabras sin contar las stopwords
-def obtener_palabras_frecuentes_sin_stopwords(contenido, n=100):
+#Función que cuenta las palabras sin contar las stopwords
+def obtener_palabras_frecuentes_sin_stopwords(contenido, n=50):
       str_contenido = ' '.join(contenido)
       idioma = detect(str_contenido)
       stopwords_idioma = stopwords.stopwords(idioma)
@@ -110,3 +110,16 @@ def obtener_palabras_frecuentes_sin_stopwords(contenido, n=100):
       palabras_mas_frecuentes = sorted(frecuencia_palabras.items(), key=lambda x: x[1], reverse=True)[:n]
       return palabras_mas_frecuentes
 
+"""
+"Función que identifica los personajes y el número de veces que aparece(FASE PRUEBA)
+def identificar_personajes(contenido):
+  str_contenido = ' '.join(contenido)
+  personajes = re.search(r"SNS(\w+)", str_contenido)
+  personajes_frecuencia = {}
+  for personaje in personajes:
+    if personaje in personajes_frecuencia:
+      personajes_frecuencia[personaje] += 1
+    else:
+      personajes_frecuencia[personaje] = 1
+  return personajes_frecuencia
+  """
