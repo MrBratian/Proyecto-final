@@ -44,13 +44,14 @@ while bucle == 1:
           "2. Contar palabras\n",
           "3. Calcular frecuencia de letras\n",
           "4. Calcular palabras por longitud\n",
-          "5. Calcular frecuencia de palabras\n"
-          " 6. Salir")
+          "5. Calcular frecuencia de palabras\n",
+          "6. 100 palabras mas frecuentes sin stopwords\n",
+          "13. Salir")
     opcion_herramienta = int(input("Seleccione la opción que desea realizar:"))
 
     while True:
-        if 1 <= opcion_herramienta <= 6:
-            print("You have selected the option:", opcion_herramienta)
+        if 1 <= opcion_herramienta <=13:
+        print("\nYou have selected the option:", opcion_herramienta)
             break
         else:
             print("You have selected an invalid option")
@@ -96,14 +97,13 @@ while bucle == 1:
     elif opcion_herramienta == 5:
         print(Funciones.contar_frecuencia_palabras(contenido))
     elif opcion_herramienta == 6:
+      print(Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido))
+    elif opcion_herramienta == 13:
       print("Saliendo del programa...")
       break
     bucle = int(input("Desea volver a utilizar el programa?\n1. Si\n2. No\n"))
+print("Saliendo del programa...")
 
 
 
-for idioma in idiomas:
-    palabras_frecuentes = get_most_frequent_words_without_stopwords(contenido, idioma)
-    frecuentes_por_idioma[idioma] = palabras_frecuentes
-frecuentes_por_idioma
 

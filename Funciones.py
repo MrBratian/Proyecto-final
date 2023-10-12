@@ -24,7 +24,6 @@ def contar_caracteres(contenido):
      a=len(str_contenido)
      return a
 
-
 #Función que cuenta la cantidad de veces que se repite cada letra
 def calcular_frecuencia_letras(contenido,abecedario):
     contenido = ''.join(contenido)
@@ -38,9 +37,7 @@ def calcular_frecuencia_letras(contenido,abecedario):
         a.append(frecuencia)
     return a
 
-
 #Función que muestra la frecuencia de la longitud de las palabras
-
 def contar_palabras_por_longitud(contenido):
     str_contenido = ' '.join(contenido)  
     palabras = str_contenido.split()
@@ -52,7 +49,6 @@ def contar_palabras_por_longitud(contenido):
         else:
             longitud_palabras[longitud] += 1
     return longitud_palabras
-
 
 #Función que muestra las calcula la fecuncia de las palabras y muestra las 100 mas frecuentes
 def contar_frecuencia_palabras(contenido):
@@ -97,11 +93,11 @@ def identificar_idioma(contenido):
   else:
     return 'Unknown'
 
-
 #Funcion que cuenta las palabras sin contar las stopwords
 def obtener_palabras_frecuentes_sin_stopwords(contenido, n=100):
-      idiomas = identificar_idioma(contenido).values()
-      stopwords_idioma = stopwords.load(idioma)
+      str_contenido = ' '.join(contenido)
+      idioma = detect(str_contenido)
+      stopwords_idioma = stopwords.stopwords(idioma)
       str_contenido = ' '.join(contenido)
       palabras = str_contenido.split()
       palabras_filtradas = [palabra.lower() for palabra in palabras if palabra.lower() not in stopwords_idioma and palabra not in string.punctuation]
