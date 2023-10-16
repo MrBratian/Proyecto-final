@@ -5,7 +5,7 @@ from matplotlib import colors
 import matplotlib as mpl
 
 print("Welcome to the book analyzer")
-print("Selec your language:")
+print("Select your language:")
 print("1. English")
 print("2. Español")
 print("3. Français")
@@ -37,7 +37,7 @@ except Exception as e:
     print(f"Error inesperado al abrir el archivo: {e}")
     bucle = 0  # Salir del bucle principal
 while bucle == 1:
-    print("\naca va la descripcion del programa")
+    print("\nacá va la descripcion del programa")
     # Mostrar el menú y procesar la opción del usuario
     print("\nEl programa ofrece las siguientes herramientas:\n",
           "1. Contar caracteres\n",
@@ -60,7 +60,6 @@ while bucle == 1:
             opcion_herramienta = int(input("Input a valid option: "))
     
     if opcion_herramienta == 1:
-        while True:
             print(Funciones.contar_caracteres(contenido))
     elif opcion_herramienta == 2:
         print(Funciones.contar_palabras(contenido))
@@ -106,14 +105,16 @@ while bucle == 1:
       print(Funciones.identificar_idioma(contenido))
     elif opcion_herramienta == 8:
       print(Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido))
-    #elif opcion_herramienta == 9:
+    elif opcion_herramienta == 9:
+     
 
     #elif opcion_herramienta == 10:
+      
 
     #elif opcion_herramienta == 11:
 
-    #elif opcion_herramienta == 12:
-
+    elif opcion_herramienta == 12:
+      print(Funciones.identificar_tiempo_obra(contenido))
       
     elif opcion_herramienta == 13:
       print("Saliendo del programa...")

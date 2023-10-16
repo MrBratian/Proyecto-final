@@ -94,7 +94,7 @@ def identificar_idioma(contenido):
     return 'Unknown'
 
 #Función que cuenta las palabras sin contar las stopwords
-def obtener_palabras_frecuentes_sin_stopwords(contenido, n=50):
+def obtener_palabras_frecuentes_sin_stopwords(contenido, n=100):
       str_contenido = ' '.join(contenido)
       idioma = detect(str_contenido)
       stopwords_idioma = stopwords.stopwords(idioma)
@@ -110,16 +110,49 @@ def obtener_palabras_frecuentes_sin_stopwords(contenido, n=50):
       palabras_mas_frecuentes = sorted(frecuencia_palabras.items(), key=lambda x: x[1], reverse=True)[:n]
       return palabras_mas_frecuentes
 
+#Función que identifica los personajes y el número de veces que aparece
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+""""
+def identificar_tiempo_obra(contenido):
+  palabras_clave_por_periodo = {
+      "Época Antigua": {"antiguo", "clásico", "imperio", "griego", "romano", "mesopotamia", "Filosofía", "Aristóteles", "Platón", "Sumeria", "Esparta", "Atenas", "Imperio Romano", "Jeroglíficos", "Zeus"},
+      "Edad Medieval": {"medieval", "caballeros", "castillo", "reino", "feudal", "edad oscura", "Caballero", "Castillo", "Cruzadas", "Inquisición", "Caballeros templarios", "Vassallo", "Nobleza", "Peste negra", "Herejía"},
+      "Renacimiento": {"renacimiento", "humanismo", "arte", "ciencia", "leonardo", "da vinci", "Miguel Ángel", "Galileo Galilei", "Copérnico", "Reforma protestante", "Iluminismo"},
+      "Barroco": {"barroco", "artístico", "contrarreforma", "caravaggio", "versalles", "luis xiv", "Contrarreforma", "Música barroca", "Teatro barroco", "Siglo de Oro", "Pintura barroca", "Literatura barroca", "Arquitectura barroca"},
+      "Siglo de la Ilustración": {"ilustración", "razón", "voltaire", "iluminismo", "enciclopedia", "revolución francesa", "Revolución intelectual", "Derechos humanos", "Racionalismo", "Empirismo", "Separación de poderes", "Literatura ilustrada", "Siglo de las luces"},
+      "Siglo XIX": {"siglo xix", "romanticismo", "revolución industrial", "victoriano", "Darwin", "Marx", "Imperialismo", "Nacionalismo","Realismo", "Beethoven", "Impresionismo", "Revolución Haitiana"},
+      "Siglo XX": {"siglo xx", "guerras mundiales", "revolución rusa", "movimiento civil", "tecnología", "contemporáneo", "Guerra Fría", "Holocausto", "Socialismo", "Comunismo", "Guerra de Vietnam", "Guerra en Irak", "Contracultura", "Siglo XX"},
+    "Siglo XXI":{"Tecnología", "Internet", "Redes sociales", "Smartphone", "globalización", "cambio climático", "sostenibilidad", "inteligencia artificial", "ciberseguridad", "desarrollo sostenible", "energía renovable", "pandemia", "criptomonedas", "Comercio electrónico"},
+    "Futuro":{"futurología", "innovación", "tecnología de vanguardia", "robótica avanzada", "exploración espacial", "colonización de otros planetas", "singularidad tecnológica", "teletransportación", "inteligencia artificial superinteligente", "nanotecnología", "realidad aumentada", "bioingeniería", "medicina regenerativa", "energía limpia", "viajes en el tiempo", "clonación humana"}
+  }
+
+  palabras = [palabra.lower() for palabra in nltk.word_tokenize(' '.join(contenido))]
+
+  conteo_por_periodo = {periodo: 0 for periodo in palabras_clave_por_periodo}
+
+  for palabra in palabras:
+      for periodo, palabras_clave in palabras_clave_por_periodo.items():
+          if palabra in palabras_clave:
+              conteo_por_periodo[periodo] += 1
+
+  tiempo_mas_probable = max(conteo_por_periodo, key=conteo_por_periodo.get)
+
+  return tiempo_mas_probable
+
 """
-"Función que identifica los personajes y el número de veces que aparece(FASE PRUEBA)
-def identificar_personajes(contenido):
-  str_contenido = ' '.join(contenido)
-  personajes = re.search(r"SNS(\w+)", str_contenido)
-  personajes_frecuencia = {}
-  for personaje in personajes:
-    if personaje in personajes_frecuencia:
-      personajes_frecuencia[personaje] += 1
-    else:
-      personajes_frecuencia[personaje] = 1
-  return personajes_frecuencia
-  """
+
+

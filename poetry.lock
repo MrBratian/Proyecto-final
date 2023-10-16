@@ -678,16 +678,6 @@ files = [
 ]
 
 [[package]]
-name = "stopwords"
-version = "1.0.0"
-description = "Stopwords filter for 42 languages"
-optional = false
-python-versions = "*"
-files = [
-    {file = "stopwords-1.0.0-py2.py3-none-any.whl", hash = "sha256:c6f88bb12a5c82d88e30ef14e28a3172fcbe291b8a158ef0db6444258b518596"},
-]
-
-[[package]]
 name = "stopwordsiso"
 version = "0.6.1"
 description = "Collection of stopwords for multiple languages. Using ISO 639-1 language code."
@@ -743,4 +733,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "523c63c142c1522741e4e57eee859ad92d62b04742a56724e06eb595ddc4d9d5"
+content-hash = "c2aba2d0acf1a861121b8b6a36d98eeb89430762835be4c81ab90f0b9dd82c91"
