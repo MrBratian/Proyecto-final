@@ -10,6 +10,7 @@ matplotlib = "3.8.0"
 langdetect = "^1.0.9"
 stopwordsiso = "0.6.1"
 nltk = "^3.8.1"
+geopy = "^2.4.0"
 
 [tool.pyright]
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md

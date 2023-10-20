@@ -48,16 +48,20 @@ while bucle == 1:
           "6. Calcular número distinto de palabras\n",
           "7. Decir idioma\n",
           "8. 100 palabras mas frecuentes sin stopwords\n",
-          "13. Salir")
+          "9. Personajes del texto junto con sus frecuencias\n",
+          "10. Personajes principales \n",
+          "11. Lugare mencionados\n",
+          "12. Tiempo en el que transcurre la obra\n"
+          " 13. Salir")
     opcion_herramienta = int(input("Seleccione la opción que desea realizar:"))
 
     while True:
         if 1 <= opcion_herramienta <=13:
-            print("\nYou have selected the option:", opcion_herramienta)
+            print("\nHa elijido la opción número:", opcion_herramienta)
             break
         else:
-            print("\nYou have selected an invalid option")
-            opcion_herramienta = int(input("Input a valid option: "))
+            print("\nHa ingresado una opción invalida")
+            opcion_herramienta = int(input("Ingrese una opción valida: "))
     
     if opcion_herramienta == 1:
             print(Funciones.contar_caracteres(contenido))
@@ -106,22 +110,23 @@ while bucle == 1:
     elif opcion_herramienta == 8:
       print(Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido))
     elif opcion_herramienta == 9:
-     
-
-    #elif opcion_herramienta == 10:
+      print(Funciones.Identificar_personajes_con_su_frecuencia(contenido))
+    elif opcion_herramienta == 10:
+       print(Funciones.personajes_principales(contenido))
       
-
-    #elif opcion_herramienta == 11:
-
+    elif opcion_herramienta == 11:
+      lugares_identificados = Funciones.identificar_lugares(contenido)
+      for lugar, nombre in lugares_identificados.items():
+          print(f"{lugar}: {nombre}")
     elif opcion_herramienta == 12:
-      print(Funciones.identificar_tiempo_obra(contenido))
+       print(Funciones.identificar_tiempo_obra(contenido))
       
     elif opcion_herramienta == 13:
       print("Saliendo del programa...")
       break
     bucle = int(input("Desea volver a utilizar el programa?\n1. Si\n2. No\n"))
 if bucle==2:
-  print("Saliendo del programa...")
+    print("Saliendo del programa...")
 
 
 
