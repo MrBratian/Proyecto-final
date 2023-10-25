@@ -69,10 +69,11 @@ def contar_frecuencia_palabras(contenido):
             frecuencia_palabras[palabra] += 1
         else:
             frecuencia_palabras[palabra] = 1
-    # Imprimir las 100 palabras más frecuentes
-    print("\nLas 100 palabras más frecuentes son:")
+    # Retornar las 100 palabras más frecuentes
+    palabras_mas_frecuentes = {}
     for palabra, frecuencia in sorted(frecuencia_palabras.items(), key=lambda x: x[1], reverse=True)[:100]:
-        print(f"{palabra}: {frecuencia} veces")
+        palabras_mas_frecuentes[palabra] = frecuencia
+    return palabras_mas_frecuentes
 
 #Función que calcula las palabras sin repetir
 def calcular_numero_distinto_palabras(contenido):
@@ -116,7 +117,8 @@ def obtener_palabras_frecuentes_sin_stopwords(contenido, n=50):
           else:
               frecuencia_palabras[palabra] = 1
       palabras_mas_frecuentes = sorted(frecuencia_palabras.items(), key=lambda x: x[1], reverse=True)[:n]
-      return palabras_mas_frecuentes
+      palabras_mas_frecuentes_dict = {word: freq for word, freq in palabras_mas_frecuentes}
+      return palabras_mas_frecuentes_dict
 
 
 

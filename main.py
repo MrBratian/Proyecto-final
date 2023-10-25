@@ -82,8 +82,8 @@ if opcion_lenguage == 1:
             plt.ylabel('Frequency', fontsize=20)
             cmap = mpl.colormaps['RdYlGn']
             norm = colors.Normalize(vmin=min(y), vmax=max(y))
-            histogram_abc = plt.bar(x, y, color=cmap(norm(y)))
-            for bar in histogram_abc:
+            histogram = plt.bar(x, y, color=cmap(norm(y)))
+            for bar in histogram:
                 yval = bar.get_height()
                 plt.text(bar.get_x(), yval + .005, yval)
             plt.tight_layout()
@@ -95,17 +95,33 @@ if opcion_lenguage == 1:
             y=list(Funciones.contar_palabras_por_longitud(contenido).values())
             cmap = mpl.colormaps['RdYlGn']
             norm = colors.Normalize(vmin=min(y), vmax=max(y))
-            histogram_len = plt.bar(x, y, color=cmap(norm(y)))
-            for bar in histogram_len:
+            histogram = plt.bar(x, y, color=cmap(norm(y)))
+            for bar in histogram:
                 yval = bar.get_height()
-                plt.text(bar.get_x(), yval + .005, yval)
+                plt.text(bar.get_x(), yval + .5, yval)
             plt.title('Frequency of words by length', fontsize=30)
             plt.xlabel('Word Length', fontsize=20)
-            plt.ylabel('Frecuencia', fontsize=20)
+            plt.ylabel('Frequency', fontsize=20)
             plt.tight_layout()
             plt.show()  
         elif opcion_herramienta == 5:
-            print(Funciones.contar_frecuencia_palabras(contenido))
+          print("\nThe 100 most frequent words are:")
+          print(Funciones.contar_frecuencia_palabras(contenido))
+          resultado = Funciones.contar_frecuencia_palabras(contenido)
+          x = list(resultado.keys())
+          y = list(resultado.values())
+          cmap = mpl.colormaps['RdYlGn']
+          norm = colors.Normalize(vmin=min(y), vmax=max(y))
+          histogram = plt.bar(x, y, color=cmap(norm(y)))
+          for bar in histogram:
+            yval = bar.get_height()
+            plt.text(bar.get_x(), yval + .005, yval)
+          plt.title('100 most frequent words', fontsize=20)
+          plt.xlabel('Words', fontsize=10)
+          plt.ylabel('Frequency', fontsize=10)
+          plt.xticks(rotation=45, fontsize=7, ha='right')
+          plt.tight_layout()
+          plt.show()
         elif opcion_herramienta == 6:
           print("The distinct number of words present in your text is: ",end="")
           print(Funciones.calcular_numero_distinto_palabras(contenido))
@@ -115,6 +131,21 @@ if opcion_lenguage == 1:
         elif opcion_herramienta == 8:
           print("The top 50 most frequent words in your text excluding stopwords are: ",end="")
           print(Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido))
+          resultado = Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido)
+          x = list(resultado.keys())
+          y = list(resultado.values())
+          cmap = mpl.colormaps['RdYlGn']
+          norm = colors.Normalize(vmin=min(y), vmax=max(y))
+          histogram = plt.bar(x, y, color=cmap(norm(y)))
+          for bar in histogram:
+              yval = bar.get_height()
+              plt.text(bar.get_x(), yval + .005, yval)
+          plt.title('50 most frequent words without stopwords', fontsize=20)
+          plt.xlabel('Words', fontsize=10)
+          plt.ylabel('Frequency', fontsize=10)
+          plt.xticks(rotation=45, fontsize=7, ha='right')
+          plt.tight_layout()
+          plt.show() 
         elif opcion_herramienta == 9:
           print("The characters present in your text along with their frequencies are: ")
           personajes=Funciones.Identificar_personajes_con_su_frecuencia(contenido)
@@ -207,8 +238,8 @@ elif opcion_lenguage == 2:
           plt.ylabel('Frecuencia', fontsize=20)
           cmap = mpl.colormaps['RdYlGn']
           norm = colors.Normalize(vmin=min(y), vmax=max(y))
-          histogram_abc = plt.bar(x, y, color=cmap(norm(y)))
-          for bar in histogram_abc:
+          histogram = plt.bar(x, y, color=cmap(norm(y)))
+          for bar in histogram:
               yval = bar.get_height()
               plt.text(bar.get_x(), yval + .005, yval)
           plt.tight_layout()
@@ -220,8 +251,8 @@ elif opcion_lenguage == 2:
           y=list(Funciones.contar_palabras_por_longitud(contenido).values())
           cmap = mpl.colormaps['RdYlGn']
           norm = colors.Normalize(vmin=min(y), vmax=max(y))
-          histogram_len = plt.bar(x, y, color=cmap(norm(y)))
-          for bar in histogram_len:
+          histogram = plt.bar(x, y, color=cmap(norm(y)))
+          for bar in histogram:
               yval = bar.get_height()
               plt.text(bar.get_x(), yval + .005, yval)
           plt.title('Frecuencia de palabras por longitud', fontsize=30)
@@ -230,7 +261,23 @@ elif opcion_lenguage == 2:
           plt.tight_layout()
           plt.show()  
       elif opcion_herramienta == 5:
-          print(Funciones.contar_frecuencia_palabras(contenido))
+        print("\nLas 100 palabras más frecuentes son:")
+        print(Funciones.contar_frecuencia_palabras(contenido))
+        resultado = Funciones.contar_frecuencia_palabras(contenido)
+        x = list(resultado.keys())
+        y = list(resultado.values())
+        cmap = mpl.colormaps['RdYlGn']
+        norm = colors.Normalize(vmin=min(y), vmax=max(y))
+        histogram = plt.bar(x, y, color=cmap(norm(y)))
+        for bar in histogram:
+          yval = bar.get_height()
+          plt.text(bar.get_x(), yval + .005, yval)
+        plt.title('100 palabras más frecuentes', fontsize=20)
+        plt.xlabel('Palabras', fontsize=10)
+        plt.ylabel('Frecuencia', fontsize=10)
+        plt.xticks(rotation=45, fontsize=7, ha='right')
+        plt.tight_layout()
+        plt.show() 
       elif opcion_herramienta == 6:
         print("El número distinto de palabras presentes en su texto son: ",end="")
         print(Funciones.calcular_numero_distinto_palabras(contenido))
@@ -240,6 +287,21 @@ elif opcion_lenguage == 2:
       elif opcion_herramienta == 8:
         print("Las 50 palabras mas frecuentes en su texto sin tener en cuenta stopwords son: ",end="")
         print(Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido))
+        resultado = Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido)
+        x = list(resultado.keys())
+        y = list(resultado.values())
+        cmap = mpl.colormaps['RdYlGn']
+        norm = colors.Normalize(vmin=min(y), vmax=max(y))
+        histogram = plt.bar(x, y, color=cmap(norm(y)))
+        for bar in histogram:
+            yval = bar.get_height()
+            plt.text(bar.get_x(), yval + .005, yval)
+        plt.title('50 palabras mas frecuentes sin stopwords', fontsize=20)
+        plt.xlabel('Palabras', fontsize=10)
+        plt.ylabel('Frecuencia', fontsize=10)
+        plt.xticks(rotation=45, fontsize=7, ha='right')
+        plt.tight_layout()
+        plt.show() 
       elif opcion_herramienta == 9:
         print("Los personajes presentes en su texto son: ")
         personajes=Funciones.Identificar_personajes_con_su_frecuencia(contenido)
@@ -331,8 +393,8 @@ elif opcion_lenguage == 3:
           plt.ylabel('Fréquence', fontsize=20)
           cmap = mpl.colormaps['RdYlGn']
           norm = colors.Normalize(vmin=min(y), vmax=max(y))
-          histogram_abc = plt.bar(x, y, color=cmap(norm(y)))
-          for bar in histogram_abc:
+          histogram = plt.bar(x, y, color=cmap(norm(y)))
+          for bar in histogram:
               yval = bar.get_height()
               plt.text(bar.get_x(), yval + .005, yval)
           plt.tight_layout()
@@ -344,8 +406,8 @@ elif opcion_lenguage == 3:
           y = list(Funciones.contar_palabras_por_longitud(contenido).values())
           cmap = mpl.colormaps['RdYlGn']
           norm = colors.Normalize(vmin=min(y), vmax=max(y))
-          histogram_len = plt.bar(x, y, color=cmap(norm(y)))
-          for bar in histogram_len:
+          histogram = plt.bar(x, y, color=cmap(norm(y)))
+          for bar in histogram:
               yval = bar.get_height()
               plt.text(bar.get_x(), yval + .005, yval)
           plt.title('Fréquence des mots par longueur', fontsize=30)
@@ -354,16 +416,47 @@ elif opcion_lenguage == 3:
           plt.tight_layout()
           plt.show()
       elif option_outil == 5:
-          print(Funciones.contar_frecuencia_palabras(contenido))
+        print("\nLes 100 mots les plus fréquents sont:")
+        print(Funciones.contar_frecuencia_palabras(contenido))
+        resultado = Funciones.contar_frecuencia_palabras(contenido)
+        x = list(resultado.keys())
+        y = list(resultado.values())
+        cmap = mpl.colormaps['RdYlGn']
+        norm = colors.Normalize(vmin=min(y), vmax=max(y))
+        histogram = plt.bar(x, y, color=cmap(norm(y)))
+        for bar in histogram:
+          yval = bar.get_height()
+          plt.text(bar.get_x(), yval + .005, yval)
+        plt.title('100 mots les plus fréquents', fontsize=20)
+        plt.xlabel('Mots', fontsize=10)
+        plt.ylabel('Fréquence', fontsize=10)
+        plt.xticks(rotation=45, fontsize=7, ha='right')
+        plt.tight_layout()
+        plt.show()
       elif option_outil == 6:
-          print("Le nombre distinct de mots présents dans votre texte est : ", end="")
-          print(Funciones.calcular_numero_distinto_palabras(contenido))
+        print("Le nombre distinct de mots présents dans votre texte est : ", end="")
+        print(Funciones.calcular_numero_distinto_palabras(contenido))
       elif option_outil == 7:
-          print("La langue de votre texte est : ", end="")
-          print(Funciones.identificar_idioma(contenido))
+        print("La langue de votre texte est : ", end="")
+        print(Funciones.identificar_idioma(contenido))
       elif option_outil == 8:
-          print("Les 50 mots les plus fréquents dans votre texte sans inclure les stopwords sont : ", end="")
-          print(Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido))
+        print("Les 50 mots les plus fréquents dans votre texte sans inclure les stopwords sont : ", end="")
+        print(Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido))
+        resultado = Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido)
+        x = list(resultado.keys())
+        y = list(resultado.values())
+        cmap = mpl.colormaps['RdYlGn']
+        norm = colors.Normalize(vmin=min(y), vmax=max(y))
+        histogram = plt.bar(x, y, color=cmap(norm(y)))
+        for bar in histogram:
+            yval = bar.get_height()
+            plt.text(bar.get_x(), yval + .005, yval)
+        plt.title('50 mots les plus fréquents sans mots vides', fontsize=20)
+        plt.xlabel('Mots', fontsize=10)
+        plt.ylabel('Fréquence', fontsize=10)
+        plt.xticks(rotation=45, fontsize=7, ha='right')
+        plt.tight_layout()
+        plt.show() 
       elif option_outil == 9:
           print("Les personnages présents dans votre texte sont : ")
           personajes=Funciones.Identificar_personajes_con_su_frecuencia(contenido)
@@ -454,8 +547,8 @@ elif opcion_lenguage == 4:
           plt.ylabel('Häufigkeit', fontsize=20)
           cmap = mpl.colormaps['RdYlGn']
           norm = colors.Normalize(vmin=min(y), vmax=max(y))
-          histogram_abc = plt.bar(x, y, color=cmap(norm(y)))
-          for bar in histogram_abc:
+          histogram = plt.bar(x, y, color=cmap(norm(y)))
+          for bar in histogram:
               yval = bar.get_height()
               plt.text(bar.get_x(), yval + .005, yval)
           plt.tight_layout()
@@ -467,8 +560,8 @@ elif opcion_lenguage == 4:
           y = list(Funciones.contar_palabras_por_longitud(contenido).values())
           cmap = mpl.colormaps['RdYlGn']
           norm = colors.Normalize(vmin=min(y), vmax=max(y))
-          histogram_len = plt.bar(x, y, color=cmap(norm(y)))
-          for bar in histogram_len:
+          histogram = plt.bar(x, y, color=cmap(norm(y)))
+          for bar in histogram:
               yval = bar.get_height()
               plt.text(bar.get_x(), yval + .005, yval)
           plt.title('Häufigkeit der Wörter nach Länge', fontsize=30)
@@ -477,7 +570,23 @@ elif opcion_lenguage == 4:
           plt.tight_layout()
           plt.show()
       elif opcion_herramienta == 5:
-          print(Funciones.contar_frecuencia_palabras(contenido))
+        print("\nDie 100 häufigsten Wörter sind:")
+        print(Funciones.contar_frecuencia_palabras(contenido))
+        resultado = Funciones.contar_frecuencia_palabras(contenido)
+        x = list(resultado.keys())
+        y = list(resultado.values())
+        cmap = mpl.colormaps['RdYlGn']
+        norm = colors.Normalize(vmin=min(y), vmax=max(y))
+        histogram = plt.bar(x, y, color=cmap(norm(y)))
+        for bar in histogram:
+          yval = bar.get_height()
+          plt.text(bar.get_x(), yval + .005, yval)
+        plt.title('100 häufigste Wörter', fontsize=20)
+        plt.xlabel('Wörter', fontsize=10)
+        plt.ylabel('Frequenz', fontsize=10)
+        plt.xticks(rotation=45, fontsize=7, ha='right')
+        plt.tight_layout()
+        plt.show()
       elif opcion_herramienta == 6:
           print("Die Anzahl der verschiedenen Wörter in Ihrem Text beträgt: ",end="")
           print(Funciones.calcular_numero_distinto_palabras(contenido))
@@ -485,8 +594,23 @@ elif opcion_lenguage == 4:
           print("Die Sprache Ihres Textes ist: ",end="")
           print(Funciones.identificar_idioma(contenido))
       elif opcion_herramienta == 8:
-          print("Die 50 häufigsten Wörter in Ihrem Text, ohne Stoppwörter, sind: ",end="")
-          print(Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido))
+        print("Die 50 häufigsten Wörter in Ihrem Text, ohne Stoppwörter, sind: ",end="")
+        print(Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido))
+        resultado = Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido)
+        x = list(resultado.keys())
+        y = list(resultado.values())
+        cmap = mpl.colormaps['RdYlGn']
+        norm = colors.Normalize(vmin=min(y), vmax=max(y))
+        histogram = plt.bar(x, y, color=cmap(norm(y)))
+        for bar in histogram:
+            yval = bar.get_height()
+            plt.text(bar.get_x(), yval + .005, yval)
+        plt.title('50 häufigste Wörter ohne Stoppwörter', fontsize=20)
+        plt.xlabel('Wörter', fontsize=10)
+        plt.ylabel('Frequenz', fontsize=10)
+        plt.xticks(rotation=45, fontsize=7, ha='right')
+        plt.tight_layout()
+        plt.show() 
       elif opcion_herramienta == 9:
           print("Die Charaktere in Ihrem Text zusammen mit ihrer Häufigkeit sind: ")
           personajes=Funciones.Identificar_personajes_con_su_frecuencia(contenido)
@@ -577,8 +701,8 @@ elif opcion_lenguage == 5:
         plt.ylabel('Frequência', fontsize=20)
         cmap = mpl.colormaps['RdYlGn']
         norm = colors.Normalize(vmin=min(y), vmax=max(y))
-        histograma_abc = plt.bar(x, y, color=cmap(norm(y)))
-        for bar in histograma_abc:
+        histograma = plt.bar(x, y, color=cmap(norm(y)))
+        for bar in histograma:
             yval = bar.get_height()
             plt.text(bar.get_x(), yval + .005, yval)
             plt.tight_layout()
@@ -590,8 +714,8 @@ elif opcion_lenguage == 5:
         y = list(Funciones.contar_palabras_por_longitud(conteudo).values())
         cmap = mpl.colormaps['RdYlGn']
         norm = colors.Normalize(vmin=min(y), vmax=max(y))
-        histograma_len = plt.bar(x, y, color=cmap(norm(y)))
-        for bar in histograma_len:
+        histograma = plt.bar(x, y, color=cmap(norm(y)))
+        for bar in histograma:
             yval = bar.get_height()
             plt.text(bar.get_x(), yval + .005, yval)
             plt.title('Frequência de palavras por comprimento', fontsize=30)
@@ -600,7 +724,23 @@ elif opcion_lenguage == 5:
             plt.tight_layout()
             plt.show()
     elif opcao_ferramenta == 5:
-        print(Funciones.contar_frecuencia_palabras(conteudo))
+      print("\nAs 100 palavras mais frequentes são:")
+      print(Funciones.contar_frecuencia_palabras(conteudo))
+      resultado = Funciones.contar_frecuencia_palabras(contenido)
+      x = list(resultado.keys())
+      y = list(resultado.values())
+      cmap = mpl.colormaps['RdYlGn']
+      norm = colors.Normalize(vmin=min(y), vmax=max(y))
+      histogram = plt.bar(x, y, color=cmap(norm(y)))
+      for bar in histogram:
+        yval = bar.get_height()
+        plt.text(bar.get_x(), yval + .005, yval)
+      plt.title('100 palavras mais frequentes', fontsize=20)
+      plt.xlabel('Palavras', fontsize=10)
+      plt.ylabel('Frequência', fontsize=10)
+      plt.xticks(rotation=45, fontsize=7, ha='right')
+      plt.tight_layout()
+      plt.show() 
     elif opcao_ferramenta == 6:
         print("O número distinto de palavras presentes no seu texto é: ", end="")
         print(Funciones.calcular_numero_distinto_palabras(conteudo))
@@ -608,8 +748,23 @@ elif opcion_lenguage == 5:
         print("O idioma do seu texto é: ", end="")
         print(Funciones.identificar_idioma(conteudo))
     elif opcao_ferramenta == 8:
-        print("As 50 palavras mais frequentes no seu texto, excluindo stopwords, são: ", end="")
-        print(Funciones.obtener_palabras_frecuentes_sin_stopwords(conteudo))
+      print("As 50 palavras mais frequentes no seu texto, excluindo stopwords, são: ", end="")
+      print(Funciones.obtener_palabras_frecuentes_sin_stopwords(conteudo))
+      resultado = Funciones.obtener_palabras_frecuentes_sin_stopwords(contenido)
+      x = list(resultado.keys())
+      y = list(resultado.values())
+      cmap = mpl.colormaps['RdYlGn']
+      norm = colors.Normalize(vmin=min(y), vmax=max(y))
+      histogram = plt.bar(x, y, color=cmap(norm(y)))
+      for bar in histogram:
+          yval = bar.get_height()
+          plt.text(bar.get_x(), yval + .005, yval)
+      plt.title('50 palavras mais frequentes sem stopwords', fontsize=20)
+      plt.xlabel('Palavras', fontsize=10)
+      plt.ylabel('Frequência', fontsize=10)
+      plt.xticks(rotation=45, fontsize=7, ha='right')
+      plt.tight_layout()
+      plt.show() 
     elif opcao_ferramenta == 9:
         print("Os personagens presentes no seu texto são: ")
         personagens = Funciones.Identificar_personajes_con_su_frecuencia(conteudo)
